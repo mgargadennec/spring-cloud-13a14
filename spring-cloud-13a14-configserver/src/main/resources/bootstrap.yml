@@ -1,0 +1,20 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: configserver
+  cloud:
+    config:
+      server:
+        git:
+          uri: file://c:/Users/Maël Gargadennnec/Documents/workspace-spring-cloud-13a14/spring-cloud-13a14-parent/configurations/
+  rabbitmq:
+    host: ${DOCKER_IP}     
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    instanceId: ${spring.application.name}:${random.value}
+    preferIpAddress: true

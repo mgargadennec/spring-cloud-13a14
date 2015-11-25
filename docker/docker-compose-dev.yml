@@ -1,0 +1,72 @@
+discovery:
+  image: com.cardiweb.13a14/spring-cloud-13a14-discovery
+  hostname: discovery
+  ports:
+    - "8761:8761"
+  environment:
+    - SPRING_PROFILES_ACTIVE=dev
+
+configserver:
+  image: com.cardiweb.13a14/spring-cloud-13a14-configserver
+  hostname: configserver
+  ports:
+    - "8888:8888"
+  links:
+    - discovery
+  environment:
+    - SPRING_PROFILES_ACTIVE=dev,native
+
+user:
+  image: com.cardiweb.13a14/spring-cloud-13a14-users
+  hostname: user
+  ports:
+    - "8081:8080"
+  links:
+    - discovery
+    - userdb
+    - configserver
+    - rabbitmq
+  environment:
+    - SPRING_PROFILES_ACTIVE=dev
+
+order:
+  image: com.cardiweb.13a14/spring-cloud-13a14-orders
+  hostname: order
+  ports:
+    - "8083:8080"
+  links:
+    - discovery
+    - configserver
+    - rabbitmq
+  environment:
+    - SPRING_PROFILES_ACTIVE=dev
+    
+gateway:
+  image: com.cardiweb.13a14/spring-cloud-13a14-gateway
+  hostname: gateway
+  ports:
+    - "8080:8080"
+  links:
+    - discovery
+    - configserver
+    - rabbitmq
+  environment:
+    - SPRING_PROFILES_ACTIVE=dev
+
+userdb:
+  image: mysql
+  hostname: userdb
+  ports:
+   - "3306:3306"  
+  environment:
+    - MYSQL_ROOT_PASSWORD=rootpassword
+    - MYSQL_DATABASE=userdb
+    - MYSQL_USER=userdb
+    - MYSQL_PASSWORD=userdb-password
+
+rabbitmq:
+  image: rabbitmq:3-management
+  hostname: rabbitmq
+  ports:
+    - "15672:15672"
+    - "5672:5672"
