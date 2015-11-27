@@ -14,6 +14,7 @@
     	<module>spring-cloud-13a14-users</module>
     	<module>spring-cloud-13a14-orders</module>
     	<module>spring-cloud-13a14-gateway</module>
+    	<module>spring-cloud-13a14-monitoring</module>
     </modules>
 
     <parent>

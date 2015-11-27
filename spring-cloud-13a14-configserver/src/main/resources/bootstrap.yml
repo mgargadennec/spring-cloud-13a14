@@ -8,7 +8,7 @@ spring:
     config:
       server:
         git:
-          uri: file://c:/Users/Maël Gargadennnec/Documents/workspace-spring-cloud-13a14/spring-cloud-13a14-parent/configurations/
+          uri: https://github.com/mgargadennec/spring-cloud-13a14-configurations
   rabbitmq:
     host: ${DOCKER_IP}     
 eureka:

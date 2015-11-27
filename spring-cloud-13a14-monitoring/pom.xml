@@ -3,10 +3,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>spring-cloud-13a14-gateway</artifactId>
+	<artifactId>spring-cloud-13a14-monitoring</artifactId>
 	<packaging>jar</packaging>
 
-	<name>spring-cloud-13a14-gateway</name>
+	<name>spring-cloud-13a14-monitoring</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
@@ -31,20 +31,14 @@
 			<artifactId>spring-cloud-starter-eureka</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-zuul</artifactId>
+			<groupId>de.codecentric</groupId>
+			<artifactId>spring-boot-admin-server</artifactId>
+			<version>1.3.0</version>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-stream-rabbit</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-zipkin</artifactId>
+			<groupId>de.codecentric</groupId>
+			<artifactId>spring-boot-admin-server-ui</artifactId>
+			<version>1.3.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -53,11 +47,6 @@
 		<dependency>
 			<groupId>org.jolokia</groupId>
 			<artifactId>jolokia-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
 		</dependency>
 	</dependencies>
 

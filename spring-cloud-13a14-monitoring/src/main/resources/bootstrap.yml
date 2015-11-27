@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: monitoring
+
+server:
+  port: 1234
+  
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    instanceId: ${spring.application.name}:${random.value}
+    preferIpAddress: true
